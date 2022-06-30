@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import logo from './images/logo.svg';
+// import './App.css';
 
 function App() {
   return (
@@ -8,13 +9,13 @@ function App() {
       <div className="page">
         <div className="page__container">
           <header className="header">
-            <img className="logo" src="<%=require('./images/logo.svg')%>" alt="Логотип" />
+            <img className="logo" src={logo} alt="Логотип" />
           </header>
           <main className="content">
             <section className="profile">
               <div className="profile__container-avatar">
                 <button className="profile__btn-avatar"></button>
-                <img className="profile__image" src="<%=require('./images/image.jpg')%>" alt="Аватар" />
+                <img className="profile__image" src="#" alt="Аватар" />
               </div>
               <div className="profile__info">
                 <h1 className="profile__title">Жак-Ив Кусто</h1>
