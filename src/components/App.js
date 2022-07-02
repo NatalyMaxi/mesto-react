@@ -7,13 +7,30 @@ import ImagePopup from './ImagePopup.js';
 
 
 function App() {
+
+  function handleEditProfileClick() {
+    document.querySelector('.popup_type_edit').classList.add('popup_is-active');
+  }
+
+  function handleAddPlaceClick() {
+    document.querySelector('.popup_type_add').classList.add('popup_is-active');
+  }
+
+  function handleEditAvatarClick() {
+    document.querySelector('.popup_type_edit-avatar').classList.add('popup_is-active');
+  }
+
   return (
     <div>
 
       <div className="page">
         <div className="page__container">
           <Header />
-          <Main />
+          <Main
+            onEditAvatar={handleEditAvatarClick}
+            onEditProfile={handleEditProfileClick}
+            onAddPlace={handleAddPlaceClick}
+          />
           <Footer />
           <ImagePopup />
 
