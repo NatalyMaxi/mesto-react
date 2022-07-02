@@ -53,15 +53,14 @@ function App() {
             <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
           </PopupWithForm>
 
-          <div className="popup popup_type_delete-card">
-            <div className="popup__content">
-              <button className="popup__close" type="button"></button>
-              <h3 className="popup__title">Вы уверены?</h3>
-              <form className="form" name="delete-card" noValidate>
-                <button className="form__button" type="submit" aria-label="Да">Да</button>
-              </form>
-            </div>
-          </div>
+          <PopupWithForm className="popup popup_type_delete-card"
+            popup="delete-card"
+            name="delete-card"
+            title="Вы уверены?"
+          >
+            <button className="form__button" type="submit" aria-label="Да">Да</button>
+          </PopupWithForm>
+
           <template className="template">
             <li className="list__items">
               <img src="#" alt="#" className="list__image" />
