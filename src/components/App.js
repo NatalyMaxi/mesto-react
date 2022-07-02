@@ -14,24 +14,22 @@ function App() {
           <Header />
           <Main />
           <Footer />
-          <div className="popup popup_type_edit">
-            <div className="popup__content">
-              <button className="popup__close" type="button"></button>
-              <h3 className="popup__title">Редактировать профиль</h3>
-              <form className="form" name="subscribeForm">
+          <PopupWithForm
+            popup="edit"
+            name="subscribeForm"
+            title="Редактировать профиль"
+          >
+            <input id="name" minLength="2" maxLength="40" required type="text" className="form__item" name="username" />
 
-                <input id="name" minlength="2" maxlength="40" required type="text" className="form__item" name="username" />
+            <span className="name-error form__error form__error_place_top"></span>
 
-                <span className="name-error form__error form__error_place_top"></span>
+            <input id="info" minLength="2" maxLength="200" required type="text" className="form__item" name="job" />
 
-                <input id="info" minlength="2" maxlength="200" required type="text" className="form__item" name="job" />
+            <span className="info-error form__error  form__error_place_bottom"></span>
 
-                <span className="info-error form__error  form__error_place_bottom"></span>
+            <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
 
-                <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
-              </form>
-            </div>
-          </div>
+          </PopupWithForm>
           <div className="popup popup_type_image">
             <div className="popup__pictures-container">
               <button className="popup__close" type="button"></button>
@@ -45,9 +43,9 @@ function App() {
             <div className="popup__content">
               <button className="popup__close" type="button"></button>
               <h3 className="popup__title">Новое место</h3>
-              <form className="form" name="add-images" novalidate>
+              <form className="form" name="add-images" noValidate>
 
-                <input id="region" minlength="2" maxlength="30" required type="text" placeholder="Название"
+                <input id="region" minLength="2" maxLength="30" required type="text" placeholder="Название"
                   className="form__item" name="name" />
 
                 <span className="region-error form__error form__error_place_top"></span>
@@ -64,7 +62,7 @@ function App() {
             <div className="popup__content">
               <button className="popup__close" type="button"></button>
               <h3 className="popup__title">Обновить аватар</h3>
-              <form className="form" name="edit-avatar" novalidate>
+              <form className="form" name="edit-avatar" noValidate>
                 <input id="avatar" required type="url" placeholder="Ссылка на аватар" className="form__item" name="avatar" />
                 <span className="avatar-error form__error form__error_place_top"></span>
                 <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
@@ -75,7 +73,7 @@ function App() {
             <div className="popup__content">
               <button className="popup__close" type="button"></button>
               <h3 className="popup__title">Вы уверены?</h3>
-              <form className="form" name="delete-card" novalidate>
+              <form className="form" name="delete-card" noValidate>
                 <button className="form__button" type="submit" aria-label="Да">Да</button>
               </form>
             </div>
