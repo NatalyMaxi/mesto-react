@@ -23,6 +23,12 @@ function App() {
   function handleAddPlaceClick() {
     setIsAddPlacePopupOpen(!isAddPlacePopupOpen);
   }
+  
+  function closeAllPopups() {
+    setIsEditProfilePopupOpen(false)
+    setIsEditAvatarPopupOpen(false)
+    setIsAddPlacePopupOpen(false)
+  }
 
   return (
     <div>
@@ -43,6 +49,7 @@ function App() {
             name="subscribeForm"
             title="Редактировать профиль"
             isOpen={isEditProfilePopupOpen}
+            onClose={closeAllPopups}
           >
             <input id="name" minLength="2" maxLength="40" required type="text" className="form__item" name="username" />
             <span className="name-error form__error form__error_place_top"></span>
@@ -56,6 +63,7 @@ function App() {
             name="edit-avatar"
             title="Обновить аватар"
             isOpen={isEditAvatarPopupOpen}
+            onClose={closeAllPopups}
           >
             <input id="avatar" required type="url" placeholder="Ссылка на аватар" className="form__item" name="avatar" />
             <span className="avatar-error form__error form__error_place_top"></span>
@@ -67,6 +75,7 @@ function App() {
             name="add-images"
             title="Новое место"
             isOpen={isAddPlacePopupOpen}
+            onClose={closeAllPopups}
           >
             <input id="region" minLength="2" maxLength="30" required type="text" placeholder="Название"
               className="form__item" name="name" />
@@ -81,6 +90,7 @@ function App() {
             popup="delete-card"
             name="delete-card"
             title="Вы уверены?"
+            onClose={closeAllPopups}
           >
             <button className="form__button" type="submit" aria-label="Да">Да</button>
           </PopupWithForm>
