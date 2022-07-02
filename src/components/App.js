@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';
+import PopupWithForm from './PopupWithForm.js';
 
 
 function App() {
@@ -94,10 +95,6 @@ function App() {
           </template>
         </div>
       </div>
-
-
-
-
     </div>
   );
 }
