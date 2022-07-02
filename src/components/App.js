@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header.js';
+import Footer from './Footer.js';
 // import './App.css';
 
 function App() {
@@ -27,9 +28,7 @@ function App() {
               </ul>
             </section>
           </main>
-          <footer className="footer">
-            <p className="footer__copyright">&copy; 2022 Mesto Russia</p>
-          </footer>
+          <Footer />
           <div className="popup popup_type_edit">
             <div className="popup__content">
               <button className="popup__close" type="button"></button>
