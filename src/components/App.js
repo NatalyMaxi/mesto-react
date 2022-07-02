@@ -8,16 +8,20 @@ import ImagePopup from './ImagePopup.js';
 
 function App() {
 
-  function handleEditProfileClick() {
-    document.querySelector('.popup_type_edit').classList.add('popup_is-active');
-  }
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
 
-  function handleAddPlaceClick() {
-    document.querySelector('.popup_type_add').classList.add('popup_is-active');
+  function handleEditProfileClick() {
+    setIsEditProfilePopupOpen(!isEditProfilePopupOpen);
   }
 
   function handleEditAvatarClick() {
-    document.querySelector('.popup_type_edit-avatar').classList.add('popup_is-active');
+    setIsEditAvatarPopupOpen(!isEditAvatarPopupOpen);
+  }
+
+  function handleAddPlaceClick() {
+    setIsAddPlacePopupOpen(!isAddPlacePopupOpen);
   }
 
   return (
@@ -27,8 +31,8 @@ function App() {
         <div className="page__container">
           <Header />
           <Main
-            onEditAvatar={handleEditAvatarClick}
             onEditProfile={handleEditProfileClick}
+            onEditAvatar={handleEditAvatarClick}
             onAddPlace={handleAddPlaceClick}
           />
           <Footer />
@@ -38,6 +42,7 @@ function App() {
             popup="edit"
             name="subscribeForm"
             title="Редактировать профиль"
+            isOpen={isEditProfilePopupOpen}
           >
             <input id="name" minLength="2" maxLength="40" required type="text" className="form__item" name="username" />
             <span className="name-error form__error form__error_place_top"></span>
@@ -46,10 +51,22 @@ function App() {
             <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
           </PopupWithForm>
 
+          <PopupWithForm className="popup popup_type_edit-avatar"
+            popup="edit-avatar"
+            name="edit-avatar"
+            title="Обновить аватар"
+            isOpen={isEditAvatarPopupOpen}
+          >
+            <input id="avatar" required type="url" placeholder="Ссылка на аватар" className="form__item" name="avatar" />
+            <span className="avatar-error form__error form__error_place_top"></span>
+            <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
+          </PopupWithForm>
+
           <PopupWithForm
             popup="add"
             name="add-images"
             title="Новое место"
+            isOpen={isAddPlacePopupOpen}
           >
             <input id="region" minLength="2" maxLength="30" required type="text" placeholder="Название"
               className="form__item" name="name" />
@@ -58,16 +75,6 @@ function App() {
             <input id="link" required type="url" placeholder="Ссылка на картинку" className="form__item" name="link" />
             <span className="link-error form__error form__error_place_bottom"></span>
             <button className="form__button" type="submit" aria-label="Создать" disabled>Создать</button>
-          </PopupWithForm>
-
-          <PopupWithForm className="popup popup_type_edit-avatar"
-            popup="edit-avatar"
-            name="edit-avatar"
-            title="Обновить аватар"
-          >
-            <input id="avatar" required type="url" placeholder="Ссылка на аватар" className="form__item" name="avatar" />
-            <span className="avatar-error form__error form__error_place_top"></span>
-            <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
           </PopupWithForm>
 
           <PopupWithForm className="popup popup_type_delete-card"
