@@ -1,3 +1,17 @@
+function handleEditProfileClick() {
+   document.querySelector('.popup_type_edit').classList.add('popup_is-active');
+}
+
+function handleAddPlaceClick() {
+   document.querySelector('.popup_type_add').classList.add('popup_is-active');
+}
+
+function handleEditAvatarClick() {
+   document.querySelector('.popup_type_edit-avatar').classList.add('popup_is-active');
+}
+
+
+
 function Main() {
    return (
       <main className="content">
