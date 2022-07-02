@@ -15,6 +15,7 @@ function App() {
           <Main />
           <Footer />
           <PopupWithForm
+            
             popup="edit"
             name="subscribeForm"
             title="Редактировать профиль"
@@ -30,6 +31,7 @@ function App() {
             <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
 
           </PopupWithForm>
+
           <div className="popup popup_type_image">
             <div className="popup__pictures-container">
               <button className="popup__close" type="button"></button>
@@ -39,12 +41,13 @@ function App() {
               </figure>
             </div>
           </div>
-          <div className="popup popup_type_add">
-            <div className="popup__content">
-              <button className="popup__close" type="button"></button>
-              <h3 className="popup__title">Новое место</h3>
-              <form className="form" name="add-images" noValidate>
 
+          <PopupWithForm
+            
+            popup="add"
+            name="add-images"
+            title="Новое место"
+          >
                 <input id="region" minLength="2" maxLength="30" required type="text" placeholder="Название"
                   className="form__item" name="name" />
 
@@ -55,9 +58,9 @@ function App() {
                 <span className="link-error form__error form__error_place_bottom"></span>
 
                 <button className="form__button" type="submit" aria-label="Создать" disabled>Создать</button>
-              </form>
-            </div>
-          </div>
+            
+          </PopupWithForm>
+
           <div className="popup popup_type_edit-avatar">
             <div className="popup__content">
               <button className="popup__close" type="button"></button>
