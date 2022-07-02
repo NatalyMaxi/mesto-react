@@ -14,22 +14,17 @@ function App() {
           <Header />
           <Main />
           <Footer />
+
           <PopupWithForm
-            
             popup="edit"
             name="subscribeForm"
             title="Редактировать профиль"
           >
             <input id="name" minLength="2" maxLength="40" required type="text" className="form__item" name="username" />
-
             <span className="name-error form__error form__error_place_top"></span>
-
             <input id="info" minLength="2" maxLength="200" required type="text" className="form__item" name="job" />
-
             <span className="info-error form__error  form__error_place_bottom"></span>
-
             <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
-
           </PopupWithForm>
 
           <div className="popup popup_type_image">
@@ -43,35 +38,29 @@ function App() {
           </div>
 
           <PopupWithForm
-            
             popup="add"
             name="add-images"
             title="Новое место"
           >
-                <input id="region" minLength="2" maxLength="30" required type="text" placeholder="Название"
-                  className="form__item" name="name" />
+            <input id="region" minLength="2" maxLength="30" required type="text" placeholder="Название"
+              className="form__item" name="name" />
 
-                <span className="region-error form__error form__error_place_top"></span>
-
-                <input id="link" required type="url" placeholder="Ссылка на картинку" className="form__item" name="link" />
-
-                <span className="link-error form__error form__error_place_bottom"></span>
-
-                <button className="form__button" type="submit" aria-label="Создать" disabled>Создать</button>
-            
+            <span className="region-error form__error form__error_place_top"></span>
+            <input id="link" required type="url" placeholder="Ссылка на картинку" className="form__item" name="link" />
+            <span className="link-error form__error form__error_place_bottom"></span>
+            <button className="form__button" type="submit" aria-label="Создать" disabled>Создать</button>
           </PopupWithForm>
 
-          <div className="popup popup_type_edit-avatar">
-            <div className="popup__content">
-              <button className="popup__close" type="button"></button>
-              <h3 className="popup__title">Обновить аватар</h3>
-              <form className="form" name="edit-avatar" noValidate>
-                <input id="avatar" required type="url" placeholder="Ссылка на аватар" className="form__item" name="avatar" />
-                <span className="avatar-error form__error form__error_place_top"></span>
-                <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
-              </form>
-            </div>
-          </div>
+          <PopupWithForm className="popup popup_type_edit-avatar"
+            popup="edit-avatar"
+            name="edit-avatar"
+            title="Обновить аватар"
+          >
+            <input id="avatar" required type="url" placeholder="Ссылка на аватар" className="form__item" name="avatar" />
+            <span className="avatar-error form__error form__error_place_top"></span>
+            <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
+          </PopupWithForm>
+
           <div className="popup popup_type_delete-card">
             <div className="popup__content">
               <button className="popup__close" type="button"></button>
