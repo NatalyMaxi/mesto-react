@@ -3,6 +3,7 @@ import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';
 import PopupWithForm from './PopupWithForm.js';
+import ImagePopup from './ImagePopup.js';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Header />
           <Main />
           <Footer />
+          <ImagePopup />
 
           <PopupWithForm
             popup="edit"
@@ -26,16 +28,6 @@ function App() {
             <span className="info-error form__error  form__error_place_bottom"></span>
             <button className="form__button" type="submit" aria-label="Сохранить">Сохранить</button>
           </PopupWithForm>
-
-          <div className="popup popup_type_image">
-            <div className="popup__pictures-container">
-              <button className="popup__close" type="button"></button>
-              <figure className="popup__figure">
-                <img className="popup__img" src="#" alt="#" />
-                <figcaption className="popup__caption"></figcaption>
-              </figure>
-            </div>
-          </div>
 
           <PopupWithForm
             popup="add"
