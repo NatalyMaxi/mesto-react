@@ -1,7 +1,8 @@
 import React from 'react';
 import Header from './Header.js';
+import Main from './Main.js';
 import Footer from './Footer.js';
-// import './App.css';
+
 
 function App() {
   return (
@@ -10,24 +11,7 @@ function App() {
       <div className="page">
         <div className="page__container">
           <Header />
-          <main className="content">
-            <section className="profile">
-              <div className="profile__container-avatar">
-                <button className="profile__btn-avatar"></button>
-                <img className="profile__image" src="#" alt="Аватар" />
-              </div>
-              <div className="profile__info">
-                <h1 className="profile__title">Жак-Ив Кусто</h1>
-                <button className="profile__btn" type="button" aria-label="Редактировать"></button>
-                <p className="profile__subtitle">Исследователь океана</p>
-              </div>
-              <button className="profile__button" type="button" aria-label="Добавить"></button>
-            </section>
-            <section className="pictures">
-              <ul className="list">
-              </ul>
-            </section>
-          </main>
+          <Main />
           <Footer />
           <div className="popup popup_type_edit">
             <div className="popup__content">
