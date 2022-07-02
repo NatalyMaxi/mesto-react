@@ -1,16 +1,14 @@
 import React from 'react';
-import logo from './images/logo.svg';
+import Header from './Header.js';
 // import './App.css';
 
 function App() {
   return (
     <div>
-    
+
       <div className="page">
         <div className="page__container">
-          <header className="header">
-            <img className="logo" src={logo} alt="Логотип" />
-          </header>
+          <Header />
           <main className="content">
             <section className="profile">
               <div className="profile__container-avatar">
@@ -113,7 +111,7 @@ function App() {
           </template>
         </div>
       </div>
-  
+
 
 
 
