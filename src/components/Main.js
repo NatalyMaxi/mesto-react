@@ -22,11 +22,11 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
       api.getInitialCards()
          .then((data) => {
             setCards(data);
-         }, [])
+         })
          .catch((err) => {
             console.log(`Ошибка: ${err}`)
-         }, []);
-   })
+         });
+   }, [])
 
    return (
       <main className="content">
@@ -42,13 +42,13 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
             </div>
             <button className="profile__button" type="button" aria-label="Добавить" onClick={onAddPlace}></button>
          </section>
-            <section className="list">
-               {cards.map((card) => (
-                  <Card key={card._id} card={card} onCardClick={onCardClick} />
-               ))} 
-            </section>  
+         <section className="list">
+            {cards.map((card) => (
+               <Card key={card._id} card={card} onCardClick={onCardClick} />
+            ))}
+         </section>
       </main>
-   ) 
+   )
 }
 
 export default Main;
