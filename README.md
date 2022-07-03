@@ -28,5 +28,4 @@ npm run build - запуск сборки проекта
 
 
 **Ссылка на сайт**
-
-https://natalymaxi.github.io/mesto/
+https://natalymaxi.github.io/mesto-react/
