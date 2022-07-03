@@ -7,6 +7,7 @@ function Main(props) {
    const [userName, setUserName] = React.useState('');
    const [userDescription, setUserDescription] = React.useState('');
    const [userAvatar, setUserAvatar] = React.useState('');
+   const [cards, setCards] = React.useState([]);
 
    React.useEffect(() => {
       api.getUserInfo()
@@ -18,6 +19,13 @@ function Main(props) {
          .catch((err) => {
             console.log(`Ошибка: ${err}`);
          });
+      api.getInitialCards()
+         .then((data) => {
+            setCards(data);
+         })
+         .catch((err) => {
+            console.log(`Ошибка: ${err}`)
+         }, []);
    })
 
    return (
@@ -34,10 +42,11 @@ function Main(props) {
             </div>
             <button className="profile__button" type="button" aria-label="Добавить" onClick={props.onAddPlace}></button>
          </section>
-         <section className="pictures">
-            <ul className="list">
-            </ul>
-         </section>
+            <section className="list">
+               {cards.map((card) => (
+                  <Card key={card._id} card={card} onCardClick={props.onCardClick} />
+               ))} 
+            </section>  
       </main>
    ) 
 }

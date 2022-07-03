@@ -1,6 +1,7 @@
 function PopupWithForm(props) {
 
    const popupIsActive = props.isOpen ? 'popup_is-active' : '';
+   
    return (
       <div className={`popup popup_type_${props.popup} ${popupIsActive}`}>
          <div className="popup__content">
