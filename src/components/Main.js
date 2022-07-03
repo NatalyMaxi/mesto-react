@@ -1,5 +1,5 @@
 import React from "react";
-import api from '../utils/Api.js';
+import api from '../utils/api.js';
 import Card from "./Card.js";
 
 function Main(props) {
@@ -22,7 +22,7 @@ function Main(props) {
       api.getInitialCards()
          .then((data) => {
             setCards(data);
-         })
+         }, [])
          .catch((err) => {
             console.log(`Ошибка: ${err}`)
          }, []);

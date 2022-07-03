@@ -12,6 +12,14 @@ function PopupWithForm(props) {
                name={`${props.name}`}
                noValidate>
                {props.children}
+
+               <button
+                  className="form__button"
+                  type="submit"
+                  aria-label="Создать"
+                  disabled>{props.text}
+                  </button>
+
             </form>
          </div>
       </div>
