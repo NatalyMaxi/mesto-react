@@ -7,6 +7,7 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
 
    const [cards, setCards] = React.useState([]);
    const currentUserContext = React.useContext(CurrentUserContext);
+   const { name, about, avatar } = currentUserContext;
 
    React.useEffect(() => {
       api
@@ -18,6 +19,24 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
             console.log(`Ошибка: ${err}`);
          });
    }, []);
+
+   function handleCardLike(card) {
+      const isLiked = card.likes.some(item => item._id === currentUserContext._id);
+      api
+         .changeLikeCardStatus(card._id, !isLiked)
+         .then((newCard) => {
+            setCards((state) =>
+               state.map((c) => (c._id === card._id ? newCard : c))
+            );
+         })
+         .catch((err) => {
+            console.log(`Ошибка: ${err}`);
+         });
+
+   }
+
+
+
 
    return (
       <main className="content">
@@ -35,7 +54,7 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onCardClick }) {
          </section>
          <section className="list">
             {cards.map((card) => (
-               <Card key={card._id} card={card} onCardClick={onCardClick} />
+               <Card key={card._id} card={card} onCardClick={onCardClick} onCardLike={handleCardLike} />
             ))}
          </section>
       </main>

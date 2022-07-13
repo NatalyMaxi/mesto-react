@@ -6,10 +6,10 @@ class Api {
 
    //проверим ответ 
    _checkResponse(res) {
-         if (res.ok) {
-            return res.json();
-         }
-         return Promise.reject(`Ошибка: ${res.status}`) 
+      if (res.ok) {
+         return res.json();
+      }
+      return Promise.reject(`Ошибка: ${res.status}`)
    }
 
    //получим информацию о пользователе
@@ -75,22 +75,22 @@ class Api {
          .then(this._checkResponse)
    }
 
-   // поставим лайк карточке
-   addLike(_id) {
-      return fetch(`${this._url}/cards/${_id}/likes`, {
-         method: 'PUT',
-         headers: this._headers
-      })
-         .then(this._checkResponse)
-   }
+   //статус лайка/дизлайка карточки
+   changeLikeCardStatus(_id, isLiked) {
 
-   // удалим лайк с карточки
-   deleteLike(_id) {
-      return fetch(`${this._url}/cards/${_id}/likes`, {
-         method: 'DELETE',
-         headers: this._headers
-      })
-         .then(this._checkResponse)
+      if (isLiked) {
+         return fetch(`${this._url}/cards/${_id}/likes`, {
+            method: 'PUT',
+            headers: this._headers
+         })
+            .then(this._checkResponse)
+      } else {
+         return fetch(`${this._url}/cards/${_id}/likes`, {
+            method: 'DELETE',
+            headers: this._headers
+         })
+            .then(this._checkResponse)
+      }
    }
 }
 
