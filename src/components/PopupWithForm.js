@@ -18,7 +18,7 @@ function PopupWithForm({ isOpen, popup, onClose, title, name, children, text, on
                   className="form__button"
                   type="submit"
                   aria-label="Создать"
-                  disabled>{text}
+                  >{text}
                   </button>
 
             </form>
