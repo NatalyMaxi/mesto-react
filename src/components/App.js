@@ -6,6 +6,7 @@ import Main from './Main.js';
 import Footer from './Footer.js';
 import PopupWithForm from './PopupWithForm.js';
 import ImagePopup from './ImagePopup.js';
+import EditProfilePopup from './EditProfilePopup.js';
 
 
 function App() {
@@ -64,19 +65,7 @@ function App() {
         <Footer />
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
-        <PopupWithForm
-          popup="edit"
-          name="subscribeForm"
-          title="Редактировать профиль"
-          text="Сохранить"
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-        >
-          <input id="name" minLength="2" maxLength="40" required type="text" className="form__item" name="username" placeholder="Имя" />
-          <span className="name-error form__error form__error_place_top"></span>
-          <input id="info" minLength="2" maxLength="200" required type="text" className="form__item" name="job" placeholder="О себе" />
-          <span className="info-error form__error  form__error_place_bottom"></span>
-        </PopupWithForm>
+          <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} /> 
 
         <PopupWithForm className="popup popup_type_edit-avatar"
           popup="edit-avatar"
