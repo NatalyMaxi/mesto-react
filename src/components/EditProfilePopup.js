@@ -45,7 +45,6 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
          <span className="info-error form__error  form__error_place_bottom"></span>
       </PopupWithForm> 
    )
-
 }
 
 export default EditProfilePopup;

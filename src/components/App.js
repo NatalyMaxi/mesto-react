@@ -52,6 +52,17 @@ function App() {
       })
   }
 
+  function handleUpdateAvatar(data) {
+    api.updateAvatar(data)
+      .then((data) => {
+        setCurrentUser(data);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      });
+  };
+
   React.useEffect(() => {
     api
       .getUserInfo()
@@ -77,7 +88,7 @@ function App() {
           <Footer />
           <ImagePopup card={selectedCard} onClose={closeAllPopups} />
           <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
-          <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
+          <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
 
           <PopupWithForm
             popup="add"
@@ -95,7 +106,8 @@ function App() {
             <span className="link-error form__error form__error_place_bottom"></span>
           </PopupWithForm>
 
-          <PopupWithForm className="popup popup_type_delete-card"
+          <PopupWithForm
+            className="popup popup_type_delete-card"
             popup="delete-card"
             name="delete-card"
             title="Вы уверены?"
