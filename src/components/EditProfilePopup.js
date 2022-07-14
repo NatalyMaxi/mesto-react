@@ -29,7 +29,6 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       })
    };
 
-
    return (
       <PopupWithForm
          popup="edit"
