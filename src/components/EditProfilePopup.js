@@ -13,6 +13,15 @@ function EditProfilePopup({ isOpen, onClose }) {
       setDescription(currentUserContext.about);
    }, [currentUserContext]); 
 
+   function handleChangeName(evt) {
+      setName(evt.target.value)
+   };
+
+   function handleChangeDescription(evt) {
+      setDescription(evt.target.value)
+   };
+
+
    return (
       <PopupWithForm
          popup="edit"
@@ -22,9 +31,9 @@ function EditProfilePopup({ isOpen, onClose }) {
          isOpen={isOpen}
          onClose={onClose}
       >
-         <input id="name" minLength="2" maxLength="40" required type="text" className="form__item" name="username" placeholder="Имя" />
+         <input id="name" minLength="2" maxLength="40" required type="text" className="form__item" name="username" placeholder="Имя" value={name} onChange={handleChangeName} />
          <span className="name-error form__error form__error_place_top"></span>
-         <input id="info" minLength="2" maxLength="200" required type="text" className="form__item" name="job" placeholder="О себе" />
+         <input id="info" minLength="2" maxLength="200" required type="text" className="form__item" name="job" placeholder="О себе" value={description} onChange={handleChangeDescription} />
          <span className="info-error form__error  form__error_place_bottom"></span>
       </PopupWithForm> 
    )
