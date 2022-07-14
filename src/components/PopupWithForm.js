@@ -1,4 +1,4 @@
-function PopupWithForm({ isOpen, popup, onClose, title, name, children, text }) {
+function PopupWithForm({ isOpen, popup, onClose, title, name, children, text, onSubmit }) {
 
    const popupIsActive = isOpen ? 'popup_is-active' : '';
    
@@ -10,6 +10,7 @@ function PopupWithForm({ isOpen, popup, onClose, title, name, children, text }) 
             <form
                className="form"
                name={name}
+               onSubmit={onSubmit}
                noValidate>
                {children}
 

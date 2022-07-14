@@ -37,7 +37,18 @@ function App() {
     setIsEditProfilePopupOpen(false)
     setIsEditAvatarPopupOpen(false)
     setIsAddPlacePopupOpen(false)
-    setSelectedCard({});
+    setSelectedCard({})
+  }
+
+  function handleUpdateUser(newUserInfo) {
+    api.updateUserInfo(newUserInfo)
+      .then((data) => {
+        setCurrentUser(data);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(`Ошибка: ${err}`);
+      })
   }
 
   React.useEffect(() => {
@@ -65,7 +76,7 @@ function App() {
         <Footer />
         <ImagePopup card={selectedCard} onClose={closeAllPopups} />
 
-          <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} /> 
+          <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} /> 
 
         <PopupWithForm className="popup popup_type_edit-avatar"
           popup="edit-avatar"
