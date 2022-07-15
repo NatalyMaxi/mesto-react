@@ -10,8 +10,8 @@ function PopupWithForm({ isOpen, popup, onClose, title, name, children, text, on
             <form
                className="form"
                name={name}
-               onSubmit={onSubmit}
-               noValidate>
+               onSubmit={onSubmit}>
+               
                {children}
 
                <button
