@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PopupWithForm from './PopupWithForm.js'
 
 function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
 
-   const [link, setlink] = React.useState('');
-   const [title, setTitle] = React.useState('');
+   const [link, setlink] = useState('');
+   const [title, setTitle] = useState('');
 
    function handleChangeTitle(evt) {
       setTitle(evt.target.value)
@@ -22,7 +22,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
       })
    }
 
-   React.useEffect(() => {
+   useEffect(() => {
       if (!isOpen) {
          setlink('')
          setTitle('')
@@ -39,10 +39,30 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
          onClose={onClose}
          onSubmit={handleSubmit}
       >
-         <input id="region" minLength="2" maxLength="30" required type="text" placeholder="Название"
-            className="form__item" name="name" value={title} onChange={handleChangeTitle} />
+         <input
+            id="region"
+            minLength="2"
+            maxLength="30"
+            required
+            type="text"
+            placeholder="Название"
+            className="form__item"
+            name="name"
+            value={title}
+            onChange={handleChangeTitle} />
+         
          <span className="region-error form__error form__error_place_top"></span>
-         <input id="link" required type="url" placeholder="Ссылка на картинку" className="form__item" name="link" value={link} onChange={handleChangelink} />
+
+         <input
+            id="link"
+            required
+            type="url"
+            placeholder="Ссылка на картинку"
+            className="form__item"
+            name="link"
+            value={link}
+            onChange={handleChangelink} />
+         
          <span className="link-error form__error form__error_place_bottom"></span>
       </PopupWithForm>
    )

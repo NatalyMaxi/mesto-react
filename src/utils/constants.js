@@ -1,7 +1,6 @@
 'use strict'
 
 // попап редактирования профиля
-const profileEditingButton = document.querySelector('.profile__btn');
 const formEditProfile = modalWindowEdit.querySelector('[name="subscribeForm"]');
 const nameInput = formEditProfile.querySelector('[name="username"]');
 const jobInput = formEditProfile.querySelector('[name="job"]');
