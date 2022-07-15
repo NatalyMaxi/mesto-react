@@ -3,30 +3,43 @@ import PopupWithForm from './PopupWithForm.js'
 
 function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
 
-   const [link, setlink] = useState('');
-   const [title, setTitle] = useState('');
+   // const [link, setlink] = useState('');
+   // const [title, setTitle] = useState('');
 
-   function handleChangeTitle(evt) {
-      setTitle(evt.target.value)
+   // function handleChangeTitle(evt) {
+   //    setTitle(evt.target.value)
+   // }
+
+   // function handleChangelink(evt) {
+   //    setlink(evt.target.value)
+   // };
+
+   // useEffect(() => {
+   //    if (!isOpen) {
+   //       setlink('')
+   //       setTitle('')
+   //    }
+   // }, [isOpen])
+
+   const [formValues, setFormValues] = useState({ name: "", link: "" });
+   const handleChange = (evt) => {
+      const { name, value } = evt.target;
+      setFormValues(prevState => ({ ...prevState, [name]: value }));
    }
-
-   function handleChangelink(evt) {
-      setlink(evt.target.value)
-   };
 
    function handleSubmit(evt) {
       evt.preventDefault()
       onAddPlace({
-         name: title,
-         link: link
+         name: formValues.name,
+         link: formValues.link
       })
    }
 
    useEffect(() => {
-      if (!isOpen) {
-         setlink('')
-         setTitle('')
-      }
+   setFormValues({
+   name: "",
+   link: ""
+   })
    }, [isOpen])
 
    return (
@@ -48,8 +61,8 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
             placeholder="Название"
             className="form__item"
             name="name"
-            value={title}
-            onChange={handleChangeTitle} />
+            value={formValues.name}
+            onChange={handleChange} />
          
          <span className="region-error form__error form__error_place_top"></span>
 
@@ -60,8 +73,8 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
             placeholder="Ссылка на картинку"
             className="form__item"
             name="link"
-            value={link}
-            onChange={handleChangelink} />
+            value={formValues.link}
+            onChange={handleChange} />
          
          <span className="link-error form__error form__error_place_bottom"></span>
       </PopupWithForm>
