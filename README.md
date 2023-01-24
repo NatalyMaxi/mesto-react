@@ -1,3 +1,4 @@
+[![LOGO](src/images/logo-black.svg)](https://natalymaxi.github.io/mesto/)
 # Проект: Место (версия на React)
 ![](src/images/preview.png)
 ## O проекте
